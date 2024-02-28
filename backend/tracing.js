@@ -6,11 +6,13 @@ import { JaegerExporter } from "@opentelemetry/exporter-jaeger";
 import { Resource } from "@opentelemetry/resources";
 import { SemanticResourceAttributes } from "@opentelemetry/semantic-conventions";
 
+//exporter
 const traceExporter = new JaegerExporter({
   endpoint: "http://localhost:14268/api/traces",
   serviceName: "Reservation-app",
 });
 
+//provider
 const sdk = new NodeSDK({
   traceExporter,
   instrumentations: [getNodeAutoInstrumentations()],
